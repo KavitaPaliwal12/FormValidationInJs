@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style type="text/css"> 
+.error{
+color:red;
+}
+.reg-flex-dir-col{
+  flex-direction: column;
+}
+</style>
+
+</head>
+
+<body>
+  <br>
+  <br>
+
+  <h2><center><u>Registratrion Form </u></center></h2>
+  <br>
+   
+    <div class="container">
+      
+      
+       <div class="col-lg-8 m-auto d-block">
+   
+        
+             <form  action="#" onsubmit="return validate()"  class="bg-light" >
+               <div class="form-group ">
+              <label for="name">Enter Your Name</label>
+              <input type="text" class="form-control" name="name" id="user" placeholder="Enter your name">
+              <span id="username" class="text-danger font-size-bold"></span>
+            </div>
+            <div class="form-group ">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" name="email" id="mail" placeholder="abcd@xyz">
+              <span id="emails" class="text-danger font-size-bold"></span>
+          </div>
+            <div class="form-group ">
+              <label for="mob">Mobile</label>
+              <input type="text" class="form-control" name="mob" id="mobile" placeholder="Enter Your Mobile Number" >
+              <span id="mobno" class="text-danger font-size-bold"></span>
+            </div>
+            <div class="form-group ">
+              <label for="password">Password</label>
+              <input type="Password" class="form-control" name="password" id="pass" placeholder="Password" >
+              <span id="passwords" class="text-danger font-size-bold"></span>
+            </div>
+             <div class="form-group ">
+              <label for="Confirm password">Confirm Password</label>
+              <input type="Password" class="form-control" name="confirmPassword" id="conpass" placeholder="Confirm Password" >
+              <span id="confirmpass" class="text-danger font-size-bold"></span>
+            </div>
+    
+               <button type="submit" class="btn btn-primary" name="submit" value="submit" class="btn btn-success">Submit</button>
+               
+        </form>
+       </div>
+       </div>
+</body>
+</html>
+
+
+<script>
+
+function validate()
+  {
+    
+      var user= document.getElementById('user').value;
+      var email= document.getElementById('mail').value;
+      var mobile= document.getElementById('mobile').value;
+      var password= document.getElementById('pass').value;
+      var conPassword= document.getElementById('conpass').value;
+
+      if(user == "")
+      {
+        document.getElementById('username').innerHTML="  ** Please Enter Your Name";
+        return false;
+      }
+
+      if((user.length<=3) || (user.length>20)){
+        document.getElementById('username').innerHTML=" ** user length must be between 3 to 20 ";
+        return false;
+      }
+      if(!isNaN(user)){
+        document.getElementById('username').innerHTML=" ** only charcter are allowed";
+        return false;
+      }
+
+     if(email == "")
+      {
+        document.getElementById('emails').innerHTML="  ** Please Enter Your Email";
+        return false;
+      }
+
+      if(email.indexOf('@')<=0){
+        document.getElementById('emails').innerHTML=" ** @ Invalid Position";
+        return false;
+      }
+      if((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.')){
+        document.getElementById('emails').innerHTML=" ** @ Invalid Position";
+        return false;
+      }
+
+       if(mobile == "")
+      {
+        document.getElementById('mobno').innerHTML="  ** Please Enter Your Mobile No";
+        return false;
+      }
+
+      if(isNaN(mobile)){
+        document.getElementById('mobno').innerHTML=" ** user must enter digits ";
+        return false;
+      }
+      if(mobile.length!=10){
+        document.getElementById('mobno').innerHTML=" **  please enter 10 digits number ";
+        return false;
+      }
+
+
+       if(password == "")
+      {
+        document.getElementById('passwords').innerHTML="  ** Please Enter Your Password";
+        return false;
+      }
+
+      if((password.length<=5) || (password.length>20)){
+        document.getElementById('passwords').innerHTML=" ** Password length must be between 5 to 20 ";
+        return false;
+      }
+
+      if(password!=conPassword){
+        document.getElementById('confirmpass').innerHTML=" ** Password are not matching ";
+        return false;
+      }
+      
+       if(conPassword == "")
+      {
+        document.getElementById('confirmpass').innerHTML="  ** Please Enter Your Confirm Password";
+        return false;
+      }
+    }
+    
+</script>

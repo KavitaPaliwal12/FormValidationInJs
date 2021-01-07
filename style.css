@@ -1,0 +1,17 @@
+.bt-jumbo
+{
+    margin-bottom: 0px;
+}
+.bt-row
+{
+    margin-top:50px;
+}
+.bt-large{
+    max-width: 60%;
+    margin-left: 70px;
+}
+.bt-small{
+    max-width: 30%;
+    margin-left: 40px;
+
+} 
